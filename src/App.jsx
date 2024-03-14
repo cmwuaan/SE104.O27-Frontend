@@ -7,8 +7,8 @@ function App() {
     <main className="">
       <Routes>
         <Route path="/home" element={<Home />} />
-        {/* <Route path="/signin" element={<Signin />} /> */}
-        <Route path="/" element={<Signin />} />
+        <Route path="/signin" element={<Signin />} />
+        {/* <Route path="/" element={<Signin />} /> */}
       </Routes>
     </main>
   );

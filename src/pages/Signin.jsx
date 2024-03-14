@@ -1,5 +1,15 @@
-function Signin() {
-  return <div>Signin</div>;
-}
+import Background from '../assets/images/background.png';
+import BackgroundImage from '../components/BackgroundImage';
+import SigninForm from '../components/SigninForm';
 
-export default Signin;
+const SignIn = () => {
+  return (
+    <div className="relative">
+      <BackgroundImage imageUrl={Background}>
+        <SigninForm />
+      </BackgroundImage>
+    </div>
+  );
+};
+
+export default SignIn;
