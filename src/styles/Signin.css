@@ -1,0 +1,16 @@
+@tailwind base;
+
+@layer base {
+    body {
+        @apply font-roboto;
+        @apply bg-primary-30;
+        @apply min-h-screen;
+        @apply bg-no-repeat;
+        @apply bg-building;
+        @apply bg-bottom;
+        @apply bg-contain;
+        @apply flex;
+        @apply items-center;
+        @apply justify-center;
+    }
+}
