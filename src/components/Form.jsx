@@ -13,7 +13,7 @@ function SigninForm({ heading, subHeading }) {
   };
   return (
     <div className={styles.background_form}>
-      <form className="flex flex-col justify-center items-center text-primary-color w-[80%]">
+      <form className="flex flex-col justify-center items-center text-primary-100 w-[80%]">
         <img src={Logo} alt="logo" className="h-[60px]" />
         <h2 className="text-2xl font-bold mt-1">{heading}</h2>
         <p className="text-xs mb-6">{subHeading}</p>
@@ -22,18 +22,18 @@ function SigninForm({ heading, subHeading }) {
         <div className="flex text-[0.6rem] w-full justify-between mb-2">
           <label htmlFor="save-login" className="flex justify-center items-center gap-1">
             <input
-              className="accent-primary-color focus:accent-primary-color"
+              className="accent-primary-100 focus:accent-primary-color"
               name="save-login"
               id="save-login"
               type="checkbox"
             />
             <span>Remember me</span>
           </label>
-          <Link to={'/resetpassword'} className="hover:text-[#265902]">
+          <Link to={'/resetpassword'} className="hover:text-primary-90">
             Forgot password?
           </Link>
         </div>
-        <Button title="Log In" onClick={() => console.log('Hi')} />
+        <Button onClick={() => console.log('Hi')}>Log In</Button>
         <div className="w-full bg-[#DDE1E6] h-[0.8px] mt-3"></div>
         <p className="flex gap-1 justify-center text-[0.6rem] mt-2">
           No account yet?{' '}

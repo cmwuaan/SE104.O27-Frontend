@@ -9,7 +9,7 @@ function TextField({ label, type, name, placeholder = '', required = false }) {
         id={name}
         type={type}
         placeholder={placeholder}
-        className="text-[0.7rem] p-[6px] rounded-sm focus:outline-primary-color"
+        className="text-[0.7rem] p-[6px] rounded-sm focus:outline-primary-100"
         required={required}
       />
     </label>
