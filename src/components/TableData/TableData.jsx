@@ -55,16 +55,6 @@ function TableData({ columns, data }) {
         if (column.field === 'id') {
             return {
                 ...column,
-                headerRender: () => (
-                    <div className="flex items-center space-x-2">
-                        <input
-                            type="checkbox"
-                            checked={selected.length === data.length && data.length > 0}
-                            onChange={e => toggleSelectAll(e.target.checked)}
-                        />
-                        <span>{column.headerName}</span>
-                    </div>
-                ),
                 render: item => (
                     <div className="flex items-center space-x-2">
                         <input
@@ -110,12 +100,21 @@ function TableData({ columns, data }) {
                         {customColumns.map((column, index) => (
                             <th style={{ width: column.width }}
                                 key={index}
-                                className="px-6 py-3 text-left text-xs font-medium text-black uppercase tracking-wider space-x-2 items-center"
+                                className="px-6 py-3 text-left text-xs font-medium text-black uppercase tracking-wider"
                             >
-                                <span>{column.headerRender ? column.headerRender() : column.headerName}</span>
-                                <button onClick={() => requestSort(column.field)}>
-                                    {sortConfig.key === column.field ? (sortConfig.direction === 'ascending' ? '▲' : '▼') : '⇵'}
-                                </button>
+                                <div className='flex items-center space-x-2'>
+                                    {column.field === 'id' &&
+                                        <input
+                                            type="checkbox"
+                                            checked={selected.length === data.length && data.length > 0}
+                                            onChange={e => toggleSelectAll(e.target.checked)}
+                                        />
+                                    }
+                                    <span>{column.headerName}</span>
+                                    <button onClick={() => requestSort(column.field)}>
+                                        {sortConfig.key === column.field ? (sortConfig.direction === 'ascending' ? '▲' : '▼') : '⇵'}
+                                    </button>
+                                </div>
                             </th>
                         ))}
                     </tr>
