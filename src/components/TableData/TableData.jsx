@@ -2,10 +2,42 @@ import React, { useState, useMemo } from 'react';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import styles from './TableData.module.css';
 
-function TableData({ columns, data }) {
+function TableData({ type, data }) {
     const [selected, setSelected] = useState([]);
     const [showPassword, setShowPassword] = useState({});
     const [sortConfig, setSortConfig] = useState({ key: null, direction: 'ascending' });
+
+    const getColumnsForType = (type) => {
+        let column = [];
+        if (type === 'admin' || type === 'staff' || type === 'customer') {
+            if (type === 'admin') {
+                column.push({field: 'id', headerName: 'Admin id', width: '15%'})
+            } else if (type === 'staff') {
+                column.push({field: 'id', headerName: 'Staff id', width: '15%'})
+            } else if (type === 'customer') {
+                column.push({field: 'id', headerName: 'Customer id', width: '15%'})
+            }
+            column.push(
+                {field: 'name', headerName: 'Name', width: '20%'},
+                {field: 'email', headerName: 'Email', width: '20%'},
+                {field: 'username', headerName: 'Username', width: '20%'},
+                {field: 'password', headerName: 'Password', width: '15%'},
+                {field: 'role', headerName: 'Role', width: '10%'}
+            )
+        } else if (type === 'vehicle') {
+            return [
+                { field: 'id', headerName: 'Vehicle ID', width: '15%' },
+                { field: 'driver', headerName: 'Driver', width: '20%' },
+                { field: 'license', headerName: 'License', width: '15%' },
+                { field: 'status', headerName: 'Status', width: '15%' },
+                { field: 'location', headerName: 'Location', width: '20%' },
+                { field: 'start_time', headerName: 'Start Time', width: '15%' }
+            ];
+        }
+        return column;
+    }
+
+    const columns = getColumnsForType(type);
 
     const requestSort = (key) => {
         let direction = 'ascending';
