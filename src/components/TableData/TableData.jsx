@@ -2,10 +2,42 @@ import React, { useState, useMemo } from 'react';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import styles from './TableData.module.css';
 
-function TableData({ columns, data }) {
+function TableData({ type, data }) {
     const [selected, setSelected] = useState([]);
     const [showPassword, setShowPassword] = useState({});
     const [sortConfig, setSortConfig] = useState({ key: null, direction: 'ascending' });
+
+    const getColumnsForType = (type) => {
+        let column = [];
+        if (type === 'admin' || type === 'staff' || type === 'customer') {
+            if (type === 'admin') {
+                column.push({field: 'id', headerName: 'Admin id', width: '15%'})
+            } else if (type === 'staff') {
+                column.push({field: 'id', headerName: 'Staff id', width: '15%'})
+            } else if (type === 'customer') {
+                column.push({field: 'id', headerName: 'Customer id', width: '15%'})
+            }
+            column.push(
+                {field: 'name', headerName: 'Name', width: '20%'},
+                {field: 'email', headerName: 'Email', width: '20%'},
+                {field: 'username', headerName: 'Username', width: '20%'},
+                {field: 'password', headerName: 'Password', width: '15%'},
+                {field: 'role', headerName: 'Role', width: '10%'}
+            )
+        } else if (type === 'vehicle') {
+            return [
+                { field: 'id', headerName: 'Vehicle ID', width: '15%' },
+                { field: 'driver', headerName: 'Driver', width: '20%' },
+                { field: 'license', headerName: 'License', width: '15%' },
+                { field: 'status', headerName: 'Status', width: '15%' },
+                { field: 'location', headerName: 'Location', width: '20%' },
+                { field: 'start_time', headerName: 'Start Time', width: '15%' }
+            ];
+        }
+        return column;
+    }
+
+    const columns = getColumnsForType(type);
 
     const requestSort = (key) => {
         let direction = 'ascending';
@@ -55,16 +87,6 @@ function TableData({ columns, data }) {
         if (column.field === 'id') {
             return {
                 ...column,
-                headerRender: () => (
-                    <div className="flex items-center space-x-2">
-                        <input
-                            type="checkbox"
-                            checked={selected.length === data.length && data.length > 0}
-                            onChange={e => toggleSelectAll(e.target.checked)}
-                        />
-                        <span>{column.headerName}</span>
-                    </div>
-                ),
                 render: item => (
                     <div className="flex items-center space-x-2">
                         <input
@@ -110,12 +132,21 @@ function TableData({ columns, data }) {
                         {customColumns.map((column, index) => (
                             <th style={{ width: column.width }}
                                 key={index}
-                                className="px-6 py-3 text-left text-xs font-medium text-black uppercase tracking-wider space-x-2 items-center"
+                                className="px-6 py-3 text-left text-xs font-medium text-black uppercase tracking-wider"
                             >
-                                <span>{column.headerRender ? column.headerRender() : column.headerName}</span>
-                                <button onClick={() => requestSort(column.field)}>
-                                    {sortConfig.key === column.field ? (sortConfig.direction === 'ascending' ? '▲' : '▼') : '⇵'}
-                                </button>
+                                <div className='flex items-center space-x-2'>
+                                    {column.field === 'id' &&
+                                        <input
+                                            type="checkbox"
+                                            checked={selected.length === data.length && data.length > 0}
+                                            onChange={e => toggleSelectAll(e.target.checked)}
+                                        />
+                                    }
+                                    <span>{column.headerName}</span>
+                                    <button onClick={() => requestSort(column.field)}>
+                                        {sortConfig.key === column.field ? (sortConfig.direction === 'ascending' ? '▲' : '▼') : '⇵'}
+                                    </button>
+                                </div>
                             </th>
                         ))}
                     </tr>
