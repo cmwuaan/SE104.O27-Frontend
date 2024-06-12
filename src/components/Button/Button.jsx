@@ -1,11 +1,9 @@
 import PropTypes from 'prop-types';
+import Classes from './Button.module.css';
 
 function Button({ children, onClick, ...props }) {
   return (
-    <button
-      className="flex justify-center w-full bg-primary-100 text-white text-[0.7rem] p-[6px] font-medium rounded-sm"
-      onClick={onClick}
-    >
+    <button className={Classes.Button} onClick={onClick} {...props}>
       <span>{props.icon || null}</span>
       {children}
     </button>
@@ -13,7 +11,7 @@ function Button({ children, onClick, ...props }) {
 }
 
 Button.propTypes = {
-  onClick: PropTypes.func.isRequired,
+  onClick: PropTypes.func,
   icon: PropTypes.element,
   children: PropTypes.node,
 };

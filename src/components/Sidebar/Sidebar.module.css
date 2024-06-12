@@ -1,0 +1,35 @@
+.SidebarDesktop {
+  @apply w-[300px] border-r-[1px] border-neutral-200 flex flex-col;
+}
+
+.SidebarMobile {
+  @apply w-[80px] border-r-[1px] border-neutral-200 flex flex-col;
+}
+
+.Icon {
+  @apply text-lg;
+}
+
+.SidebarItem {
+  @apply flex items-center gap-4 m-4 p-2 text-sm rounded hover:cursor-pointer hover:bg-primary hover:text-base-outline;
+}
+
+.Active {
+  @apply bg-secondary text-base-outline;
+}
+
+.Collapse {
+  @apply flex items-center gap-4 m-4 p-2 translate-y-32 hover:cursor-pointer hover:bg-primary hover:text-base-outline rounded;
+}
+
+.LogoImage {
+  @apply w-8;
+}
+
+.LogoTitle {
+  @apply font-bold text-xl text-base-outline;
+}
+
+.Logo {
+  @apply flex items-center m-4 p-2 gap-4 hover:cursor-pointer;
+}

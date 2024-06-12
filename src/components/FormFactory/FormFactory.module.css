@@ -1,0 +1,44 @@
+.FormBackground {
+  @apply flex flex-col p-5 rounded-lg w-[90%] sm:w-[80%] md:w-[60%] lg:w-[40%] h-fit items-center justify-center;
+  background-color: hsl(var(--secondary) / 0.8);
+}
+
+.FormWrapper {
+  @apply flex flex-col justify-center items-center text-base-color w-[80%] mb-6;
+}
+
+.LogoImage {
+  @apply h-[50px];
+}
+
+.Heading {
+  @apply text-2xl font-bold mt-1;
+}
+
+.SubHeading {
+  @apply text-xs mb-6;
+}
+
+.ButtonWrapper {
+  @apply flex text-[0.6rem] w-full justify-between mb-2;
+}
+
+.Label {
+  @apply flex justify-center items-center gap-1;
+}
+
+.Checkbox {
+  @apply accent-primary focus:bg-neutral-400;
+}
+
+.Divide {
+  @apply w-full h-[0.8px] mt-3;
+}
+
+.SubLink {
+  @apply flex gap-1 justify-center text-[0.8rem] mt-2;
+}
+
+.Error {
+  @apply text-red-500 text-[0.9rem] mt-1 font-medium;
+}

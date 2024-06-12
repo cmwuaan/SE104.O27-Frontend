@@ -1,0 +1,7 @@
+.Label {
+  @apply text-[0.8rem] flex flex-col w-full gap-1 mb-3;
+}
+
+.Input {
+  @apply text-[0.8rem] p-[8px] rounded focus:outline-base-outline;
+}

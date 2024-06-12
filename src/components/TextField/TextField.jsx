@@ -1,16 +1,19 @@
 import PropTypes from 'prop-types';
+import Classes from './TextField.module.css';
 
-function TextField({ label, type, name, placeholder = '', required = false }) {
+function TextField({ label, type, name, placeholder = '', required = false, onChange, value }) {
   return (
-    <label className="text-[0.6rem] flex flex-col w-full gap-1 mb-3" htmlFor={name}>
+    <label className={Classes.Label} htmlFor={name}>
       {label}
       <input
         name={name}
         id={name}
         type={type}
         placeholder={placeholder}
-        className="text-[0.7rem] p-[6px] rounded-sm focus:outline-primary-100"
+        className={Classes.Input}
         required={required}
+        onChange={(e) => onChange(e)}
+        value={value}
       />
     </label>
   );
@@ -22,6 +25,8 @@ TextField.propTypes = {
   name: PropTypes.string.isRequired,
   placeholder: PropTypes.string,
   required: PropTypes.bool,
+  value: PropTypes.any,
+  onChange: PropTypes.func.isRequired,
 };
 
 export default TextField;

@@ -1,0 +1,3 @@
+.Button {
+  @apply flex justify-center w-full bg-base-outline text-white text-[1rem] p-[6px] font-medium rounded;
+}

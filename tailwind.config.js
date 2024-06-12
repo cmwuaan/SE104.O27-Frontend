@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
+  content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}', 'node_modules/flowbite-react/lib/esm/**/*.js'],
   theme: {
     extend: {
       fontFamily: {
@@ -35,13 +35,11 @@ export default {
         button: '500',
       },
       colors: {
-        primary: {
-          30: '#DEE5CB',
-          40: '#ADC178',
-          60: '#73A942',
-          90: '#265902',
-          100: '#1A4301',
-        },
+        background: 'hsl(var(--background))',
+        primary: 'hsl(var(--primary))',
+        secondary: 'hsl(var(--secondary))',
+        'base-color': 'hsl(var(--base-color))',
+        'base-outline': 'hsl(var(--base-outline))',
         default: {
           white: '#FFFFFF',
           alert: '#DA1E28',
@@ -49,17 +47,31 @@ export default {
           success: '#25A249',
           overlay: '#121619',
         },
-        'cool-gray': {
-          10: '#F2F4F8',
-          20: '#DDE1E6',
-          30: '#C1C7CD',
-          40: '#A2A9B0',
-          50: '#878D96',
-          60: '#697077',
-          70: '#4D5358',
-          80: '#343A3F',
-          90: '#1A4301',
-          100: '#0C1F00',
+        gray: {
+          50: 'hsl(var(--gray-50))',
+          100: 'hsl(var(--gray-100))',
+          200: 'hsl(var(--gray-200))',
+          300: 'hsl(var(--gray-300))',
+          400: 'hsl(var(--gray-400))',
+          500: 'hsl(var(--gray-500))',
+          600: 'hsl(var(--gray-600))',
+          700: 'hsl(var(--gray-700))',
+          800: 'hsl(var(--gray-800))',
+          900: 'hsl(var(--gray-900))',
+          950: 'hsl(var(--gray-950))',
+        },
+        neutral: {
+          50: 'hsl(var(--neutral-50))',
+          100: 'hsl(var(--neutral-100))',
+          200: 'hsl(var(--neutral-200))',
+          300: 'hsl(var(--neutral-300))',
+          400: 'hsl(var(--neutral-400))',
+          500: 'hsl(var(--neutral-500))',
+          600: 'hsl(var(--neutral-600))',
+          700: 'hsl(var(--neutral-700))',
+          800: 'hsl(var(--neutral-800))',
+          900: 'hsl(var(--neutral-900))',
+          950: 'hsl(var(--neutral-950))',
         },
       },
       borderRadius: {
@@ -78,5 +90,5 @@ export default {
       },
     },
   },
-  plugins: [],
+  plugins: [require('flowbite/plugin')],
 };

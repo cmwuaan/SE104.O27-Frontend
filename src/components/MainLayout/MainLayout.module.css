@@ -1,0 +1,7 @@
+.Background {
+  @apply bg-background flex w-full h-full;
+}
+
+.Content {
+  @apply grow flex flex-col h-screen w-full;
+}

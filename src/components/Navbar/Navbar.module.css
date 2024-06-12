@@ -1,0 +1,7 @@
+.Navbar {
+  @apply w-full h-14 border-b-[1px] p-4 flex justify-end items-center;
+}
+
+.Avatar {
+  @apply w-8 hover:cursor-pointer;
+}
