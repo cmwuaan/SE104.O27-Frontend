@@ -26,6 +26,7 @@ export const useGetDetailRequest = (endpoint, options) => {
 };
 
 export const useSendPostRequest = (endpoint) => {
+  console.log(endpoint);
   const mutationFetcher = async (endpoint, { arg }) => {
     return axiosInstance.post(endpoint, arg);
   };

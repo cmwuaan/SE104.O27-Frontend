@@ -60,16 +60,16 @@ const navItems = [
     path: '/vehicle',
     icon: <TbTruck />,
   },
-  {
-    title: 'Location Management',
-    path: '/location',
-    icon: <TbMap />,
-  },
-  {
-    title: 'Schedule',
-    path: '/schedule',
-    icon: <TbCalendar />,
-  },
+  // {
+  //   title: 'Location Management',
+  //   path: '/location',
+  //   icon: <TbMap />,
+  // },
+  // {
+  //   title: 'Schedule',
+  //   path: '/schedule',
+  //   icon: <TbCalendar />,
+  // },
   {
     title: 'Feedback',
     path: '/feedback',

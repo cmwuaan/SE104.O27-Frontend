@@ -52,12 +52,12 @@ const App = () => {
                 <Route path="vehicle" element={<VehiclePage />} />
                 <Route path="vehicle/create" element={<VehicleDetailPage action="create" />} />
                 <Route path="vehicle/:id/edit" element={<VehicleDetailPage action="edit" />} />
-                <Route path="location" element={<LocationPage />} />
+                {/* <Route path="location" element={<LocationPage />} />
                 <Route path="location/create" element={<LocationDetailPage action="create" />} />
-                <Route path="location/:id/edit" element={<LocationDetailPage action="edit" />} />
-                <Route path="/schedule" element={<SchedulePage />} />
+                <Route path="location/:id/edit" element={<LocationDetailPage action="edit" />} /> */}
+                {/* <Route path="/schedule" element={<SchedulePage />} />
                 <Route path="schedule/create" element={<ScheduleDetailPage action="create" />} />
-                <Route path="schedule/:id/edit" element={<ScheduleDetailPage action="edit" />} />
+                <Route path="schedule/:id/edit" element={<ScheduleDetailPage action="edit" />} /> */}
                 <Route path="/feedback" element={<FeedbackPage />} />
                 <Route path="feedback/create" element={<FeedbackDetailPage action="create" />} />
                 <Route path="feedback/:id/edit" element={<FeedbackDetailPage action="edit" />} />

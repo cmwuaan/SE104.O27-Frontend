@@ -181,7 +181,7 @@ function Customer() {
       key: 'role',
       width: 100,
       render: (record) => {
-        return record[0].charAt(0).toUpperCase() + record[0].slice(1);
+        return record[0]?.charAt(0).toUpperCase() + record[0]?.slice(1);
       },
     },
     {
@@ -218,9 +218,9 @@ function Customer() {
       render: (record) => {
         return (
           <div className="flex gap-2">
-            <Button className="bg-red-700 p-2 rounded" onClick={() => onClickRemove(record)}>
+            {/* <Button className="bg-red-700 p-2 rounded" onClick={() => onClickRemove(record)}>
               <TbTrash className="text-white" />
-            </Button>
+            </Button> */}
             <Button className="bg-base-outline p-2 rounded" onClick={() => onClickEdit(record)}>
               <BiEdit className="text-white" />
             </Button>
@@ -250,13 +250,13 @@ function Customer() {
             <PiExport className="" />
             Export
           </button>
-          <button
+          {/* <button
             onClick={handleAdd}
             className="flex justify-center items-center gap-2 bg-primary border border-base-outline rounded h-fit py-2 px-4 text-sm hover:bg-secondary"
           >
             <FiPlus className="" />
             Add
-          </button>
+          </button> */}
         </div>
       </div>
 

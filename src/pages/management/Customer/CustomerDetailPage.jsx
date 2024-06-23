@@ -21,7 +21,7 @@ function CustomerDetailPage({ action }) {
     revalidate: false,
   });
   const { trigger: createTrigger, isMutating } = useSendPostRequest(detailEndpoint);
-  const { trigger: updateTrigger } = useSendUpdateRequest(detailEndpoint, id);
+  const { trigger: updateTrigger } = useSendUpdateRequest(endpoint, id);
   const { trigger: deleteTrigger, isMutating: isDeleting } = useSendDeleteRequest(endpoint, [id]);
   const { userData, handleUserChange, setUserData } = useUserData();
 
